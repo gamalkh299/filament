@@ -1,0 +1,22 @@
+models:
+  Post:
+    title: string:400
+    content: longtext
+    published_at: nullable timestamp
+    user_id: unsignedInteger
+
+    relationships:
+      BelongsTo: User # Post belongs to User
+      HasMany: Comment # Post has many Comment
+
+  Comment:
+    content: longtext
+    post_id: unsignedInteger
+
+    relationships:
+      BelongsTo: Post # Comment belongs to Post
+
+
+
+controllers:
+  # ...
